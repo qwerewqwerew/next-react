@@ -1,3 +1,4 @@
+import React from "react";
 import ExpenseItem from './ExpenseItem'
 
 const ExpenseGroup = (props) => {
