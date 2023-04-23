@@ -1,5 +1,7 @@
-import Expenses from "./components/Expenses";
+import ExpenseGroup from './components/ExpenseGroup';
+
 function App() {
+
   const expenses = [
     {
       id: 'e1',
@@ -24,7 +26,7 @@ function App() {
   return (
     <div>
       <h1>머치모아앱</h1>
-      <Expenses items={expenses}/>
+      <ExpenseGroup prop={expenses}/>
     </div>
   );
 }
