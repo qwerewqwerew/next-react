@@ -1,5 +1,7 @@
 import React from "react";
 import Expenses from "./components/Expenses/Expenses";
+import ProductPage from "./components/Project/ProjectPage";
+
 function App() {
   const expenses = [
     {
@@ -28,9 +30,11 @@ function App() {
   );
 
  */
-  return (<div>
-    <h1>머치모아앱</h1>
-    <Expenses items={expenses} />
-  </div>)
+  return (
+    <div>
+      <h1>머치모아앱</h1>
+      <Expenses items={expenses} />
+      <ProductPage></ProductPage>
+    </div>)
 }
 export default App;
