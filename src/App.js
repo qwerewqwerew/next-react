@@ -1,7 +1,10 @@
 import React from "react";
 import Expenses from "./components/Expenses/Expenses";
 import NewExpense from "./components/NewExpense/NewExpense";
-function App() {
+function App(props) {
+  const addExpenseHandler = (expense) => {
+    console.log(expense);
+  }
   const expenses = [
     {
       id: 'e1',
@@ -27,7 +30,7 @@ function App() {
   return (
     <div>
       <h1>머치모아앱</h1>
-      <NewExpense />
+      <NewExpense onAddExpense={addExpenseHandler}/>
       <Expenses items={expenses} />
     </div>)
 }

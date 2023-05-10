@@ -1,10 +1,9 @@
 import "./ExpenseForm.css";
 import {useState} from "react";
-const ExpenseForm = () => {
+const ExpenseForm = (props) => {
   const [ inputTitle, setInputTitle ] = useState('');
   const [ inputNum, setInputNum ] = useState('');
   const [ inputDate, setInputDate ] = useState('');
-
 
   const titleChangeHandler = (e) => {
     setInputTitle(e.target.value)
@@ -20,7 +19,7 @@ const ExpenseForm = () => {
     const expenseData = {
       title: inputTitle, num: inputNum, date: new Date(inputDate)
     }
-    console.log("", expenseData);
+    console.log("", props.onSaveExpenseData(expenseData));
     setInputTitle('')
     setInputNum('')
     setInputDate('')
