@@ -68,3 +68,16 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+# 깃 헤드이동 git checkout head
+
+git checkout ab5b157
+
+# 깃 헤드연산자
+## git checkout branch1 브랜치를 branch1으로 이동합니다.
+## git checkout HEAD^ 이전 커밋
+## git checkout HEAD~3  3번 이전 커밋
+
+# 깃 브랜치 강제로 옮기기 git branch -f master HEAD~3
+
+git checkout ab5b157
