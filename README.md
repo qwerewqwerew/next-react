@@ -81,3 +81,12 @@ git checkout ab5b157
 # 깃 브랜치 강제로 옮기기 git branch -f master HEAD~3
 
 git checkout ab5b157
+
+
+
+# 복구 로컬 reset 커밋삭제
+## git reset --option 돌아갈 커밋
+### git commit -m "1"
+
+# 복구 오리진 revert 커밋추가
+## git revert ab5b157
