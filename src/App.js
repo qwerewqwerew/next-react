@@ -29,7 +29,7 @@ function App() {
 
  */
   return (<div>
-    <h1>머치모아앱</h1>
+    <h1>가계부</h1>
     <Expenses items={expenses} />
   </div>)
 }
