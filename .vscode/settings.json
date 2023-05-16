@@ -1,4 +1,9 @@
 {
   "editor.wordWrapColumn": 800,
-  "html.format.wrapLineLength": 800
+  "html.format.wrapLineLength": 800,
+  "prettier.printWidth": 300,
+  "prettier.bracketSameLine": false,
+  "css.format.braceStyle": "expand",
+  "prettier.jsxSingleQuote": true,
+  "prettier.singleAttributePerLine": true
 }

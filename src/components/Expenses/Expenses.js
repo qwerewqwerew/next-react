@@ -6,6 +6,7 @@ import "./Expenses.css";
 const Expenses = (props) => {
   const [filteredYear,setFilteredYear]=React.useState('2023');
   const changeYearFn=(year)=>{
+    console.log("Expense",year);
     setFilteredYear(year);
   }
   return (
