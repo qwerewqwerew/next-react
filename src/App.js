@@ -11,7 +11,7 @@ function App() {
 	const [expenseList, setExpenseList] = React.useState(INIT_DATA);
 
 	const addExpenseFn = (data) => {
-		return setExpenseList((prevExpenses) => {
+		setExpenseList((prevExpenses) => {
 			return [data, ...prevExpenses];
 		});
 	};
@@ -20,7 +20,6 @@ function App() {
 		<div>
 			<h1>가계부</h1>
 			<NewExpense onAddExpense={addExpenseFn} />
-			{/* <Expenses items={expenses} /> */}
 			<Expenses items={expenseList} />
 		</div>
 	);
