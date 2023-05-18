@@ -6,6 +6,7 @@ const INIT_DATA = [
 	{ id: "e2", title: "모니터", amount: 200000, date: new Date(2021, 2, 12) },
 	{ id: "e3", title: "자동차보험", amount: 294000, date: new Date(2020, 4, 1) },
 	{ id: "e4", title: "밥상(스뎅)", amount: 4500, date: new Date(2022, 5, 12) },
+	{ id: "e5", title: "밥상(스뎅)", amount: 45000, date: new Date(2020, 5, 12) },
 ];
 function App() {
 	const [expenseList, setExpenseList] = React.useState(INIT_DATA);
