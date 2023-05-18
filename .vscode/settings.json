@@ -6,5 +6,6 @@
   "css.format.braceStyle": "expand",
   "prettier.jsxSingleQuote": true,
   "prettier.singleAttributePerLine": false,
-  "editor.autoClosingBrackets": "always"
+  "editor.autoClosingBrackets": "always",
+  "emmet.triggerExpansionOnTab": true
 }
