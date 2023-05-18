@@ -7,5 +7,7 @@
   "prettier.jsxSingleQuote": true,
   "prettier.singleAttributePerLine": false,
   "editor.autoClosingBrackets": "always",
-  "emmet.triggerExpansionOnTab": true
+  "emmet.triggerExpansionOnTab": true,
+  "editor.tabCompletion": "onlySnippets",
+  "prettier.useTabs": false
 }

@@ -1,9 +1,8 @@
 import React from "react";
-import "./Expenses.css";
-import Card from "../UI/Card";
 import ExpenseList from "./ExpenseList";
 import ExpensesFilter from "./ExpensesFilter";
-import ExpenseChart from "./ExpenseChart";
+import Card from "../UI/Card";
+import "./Expenses.css";
 const Expenses = ({ items }) => {
 	const [filteredYear, setFilteredYear] = React.useState("2023");
 	const changeYearFn = (year) => {
@@ -17,7 +16,6 @@ const Expenses = ({ items }) => {
 		<div>
 			<Card className='expenses'>
 				<ExpensesFilter selected={filteredYear} onChangeYear={changeYearFn} />
-				<ExpenseChart expenses={filterYearFn} />
 				<ExpenseList items={filterYearFn} />
 			</Card>
 		</div>

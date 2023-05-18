@@ -4,6 +4,7 @@ const ExpenseForm = (props) => {
 	const [inputTitle, setInputTitle] = useState("");
 	const [inputNum, setInputNum] = useState("");
 	const [inputDate, setInputDate] = useState("");
+
 	const titleChangeHandler = (e) => {
 		setInputTitle(e.target.value);
 	};
@@ -15,7 +16,11 @@ const ExpenseForm = (props) => {
 	};
 	const submitHandler = (e) => {
 		e.preventDefault();
-		const expenseData = { title: inputTitle, amount: +inputNum, date: new Date(inputDate) };
+		const expenseData = {
+			title: inputTitle,
+			amount: inputNum,
+			date: new Date(inputDate),
+		};
 		props.onSaveExpense(expenseData);
 		setInputTitle("");
 		setInputNum("");
@@ -39,7 +44,6 @@ const ExpenseForm = (props) => {
 					</div>
 				</div>
 				<div className='new-expense__action'>
-					<button type='cancel' onClick={props.onCancel}>취소하기</button>
 					<button type='submit'>추가하기</button>
 				</div>
 			</form>
