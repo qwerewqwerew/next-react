@@ -10,18 +10,20 @@ const Expenses = ({ items }) => {
 	};
 
 	const filterYearFn = items.filter((item) => {
-		//return item=true;
-		console.log(item);
 		return item.date.getFullYear().toString() === filteredYear;
 	});
+	let expenseContent = <p>해당목록이 없습니다</p>;
+	if (filterYearFn.length > 0) {
+		expenseContent = filterYearFn.map((item) => {
+			return <ExpenseItem key={item.id} title={item.title} amount={item.amount} date={item.date} />;
+		});
+	}
 
 	return (
 		<div>
 			<Card className='expenses'>
 				<ExpensesFilter selected={filteredYear} onChangeYear={changeYearFn} />
-				{filterYearFn.map((item) => {
-					return <ExpenseItem key={item.id} title={item.title} amount={item.amount} date={item.date} />;
-				})}
+				{expenseContent}
 			</Card>
 		</div>
 	);
