@@ -7,22 +7,20 @@ import MainHeader from './components/MainHeader/MainHeader';
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
-  const loginHandler = (email, password) => {
-    // We should of course check email and password
-    // But it's just a dummy/ demo anyways
+  const loginFn = (email, password) => {
     setIsLoggedIn(true);
   };
 
-  const logoutHandler = () => {
+  const logoutFn = () => {
     setIsLoggedIn(false);
   };
 
   return (
     <React.Fragment>
-      <MainHeader isAuthenticated={isLoggedIn} onLogout={logoutHandler} />
+      <MainHeader isAuthenticated={isLoggedIn} onLogout={logoutFn} />
       <main>
-        {!isLoggedIn && <Login onLogin={loginHandler} />}
-        {isLoggedIn && <Home onLogout={logoutHandler} />}
+        {!isLoggedIn && <Login onLogin={loginFn} />}
+        {isLoggedIn && <Home onLogout={logoutFn} />}
       </main>
     </React.Fragment>
   );

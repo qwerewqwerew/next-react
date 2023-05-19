@@ -11,7 +11,7 @@ const Login = (props) => {
   const [passwordIsValid, setPasswordIsValid] = useState();
   const [formIsValid, setFormIsValid] = useState(false);
 
-  const emailChangeHandler = (event) => {
+  const emailChangeFn = (event) => {
     setEnteredEmail(event.target.value);
 
     setFormIsValid(
@@ -19,7 +19,7 @@ const Login = (props) => {
     );
   };
 
-  const passwordChangeHandler = (event) => {
+  const passwordChangeFn = (event) => {
     setEnteredPassword(event.target.value);
 
     setFormIsValid(
@@ -27,33 +27,33 @@ const Login = (props) => {
     );
   };
 
-  const validateEmailHandler = () => {
+  const validateEmailFn = () => {
     setEmailIsValid(enteredEmail.includes('@'));
   };
 
-  const validatePasswordHandler = () => {
+  const validatePasswordFn = () => {
     setPasswordIsValid(enteredPassword.trim().length > 6);
   };
 
-  const submitHandler = (event) => {
+  const submitFn = (event) => {
     event.preventDefault();
     props.onLogin(enteredEmail, enteredPassword);
   };
 
   return (
     <Card className={classes.login}>
-      <form onSubmit={submitHandler}>
+      <form onSubmit={submitFn}>
         <div
           className={`${classes.control} ${emailIsValid === false ? classes.invalid : ''
             }`}
         >
           <label htmlFor="email">이메일</label>
-          <input type="email" id="email" value={enteredEmail} onChange={emailChangeHandler} onBlur={validateEmailHandler}
+          <input type="email" id="email" value={enteredEmail} onChange={emailChangeFn} onBlur={validateEmailFn}
           />
         </div>
         <div className={`${classes.control} ${passwordIsValid === false ? classes.invalid : ''}`}        >
           <label htmlFor="password">비밀번호</label>
-          <input type="password" id="password" value={enteredPassword} onChange={passwordChangeHandler} onBlur={validatePasswordHandler}
+          <input type="password" id="password" value={enteredPassword} onChange={passwordChangeFn} onBlur={validatePasswordFn}
           />
         </div>
         <div className={classes.actions}>
