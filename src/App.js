@@ -1,56 +1,49 @@
 import React, { useState } from 'react';
 
-import GoalList from './components/Goals/GoalList/GoalList';
-import GoalInput from './components/Goals/GoalInput/GoalInput';
+import CourseGoalList from './components/CourseGoals/CourseGoalList/CourseGoalList';
+import CourseInput from './components/CourseGoals/CourseInput/CourseInput';
 import './App.css';
 
 const App = () => {
-  const [Goals, setGoals] = useState([
-    { text: '챌린저 일단 시작', id: 'g1' },
-    { text: '달성한 목표: 자바스크립트', id: 'g2' }
+  const [courseGoals, setCourseGoals] = useState([
+    { text: 'Do all exercises!', id: 'g1' },
+    { text: 'Finish the course!', id: 'g2' }
   ]);
 
-  const addGoalFn = enteredText => {
-    setGoals(prevGoals => {
+  const addGoalHandler = enteredText => {
+    setCourseGoals(prevGoals => {
       const updatedGoals = [...prevGoals];
-      updatedGoals.unshift({ text: enteredText, id: Math.random().toString() });
+      updatedGoals.unshift({ text: enteredText, id: 'goal1' });
       return updatedGoals;
     });
   };
 
-  const deleteItemFn = goalId => {
-    setGoals(prevGoals => {
+  const deleteItemHandler = goalId => {
+    setCourseGoals(prevGoals => {
       const updatedGoals = prevGoals.filter(goal => goal.id !== goalId);
       return updatedGoals;
     });
   };
 
   let content = (
-    <p style={{ textAlign: 'center' }}>등록된 목표가 없습니다. 목표를 등록 하시겠습니까?</p>
+    <p style={{ textAlign: 'center' }}>No goals found. Maybe add one?</p>
   );
 
-  if (Goals.length > 0) {
+  if (courseGoals.length > 0) {
     content = (
-      <GoalList items={Goals} onDeleteItem={deleteItemFn} />
+      <CourseGoalList items={courseGoals} onDeleteItem={deleteItemHandler} />
     );
   }
 
   return (
-    <div>
+
       <section id="goal-form">
-        <GoalInput onAddGoal={addGoalFn} />
+        <CourseInput onAddGoal={addGoalHandler} />
       </section>
       <section id="goals">
         {content}
-        {/* {Goals.length > 0 && (
-          <GoalList
-            items={Goals}
-            onDeleteItem={deleteItemFn}
-          />
-        ) // <p style={{ textAlign: 'center' }}>No goals found. Maybe add one?</p>
-        } */}
       </section>
-    </div>
+
   );
 };
 
