@@ -1,0 +1,10 @@
+{
+  "files.trimFinalNewlines": true,
+  "diffEditor.ignoreTrimWhitespace": false,
+  "files.trimTrailingWhitespace": true,
+  "prettier.jsxSingleQuote": true,
+  "javascript.format.insertSpaceAfterOpeningAndBeforeClosingJsxExpressionBraces": true,
+  "javascript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBrackets": true,
+  "debug.allowBreakpointsEverywhere": true,
+  "prettier.bracketSameLine": false
+}
