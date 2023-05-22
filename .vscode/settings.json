@@ -6,5 +6,10 @@
   "javascript.format.insertSpaceAfterOpeningAndBeforeClosingJsxExpressionBraces": true,
   "javascript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBrackets": true,
   "debug.allowBreakpointsEverywhere": true,
-  "prettier.bracketSameLine": false
+  "prettier.bracketSameLine": false,
+  "prettier.printWidth": 300,
+  "javascript.autoClosingTags": false,
+  "typescript.autoClosingTags": false,
+  "editor.autoClosingQuotes": "always",
+  "editor.autoClosingBrackets": "always"
 }

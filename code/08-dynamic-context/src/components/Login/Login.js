@@ -1,9 +1,8 @@
-import React, { useState, useEffect, useReducer, useContext, useRef } from "react";
+import React, { useState, useEffect, useReducer, useContext } from "react";
 
 import Card from "../UI/Card/Card";
-import Button from "../UI/Button/Button";
-import Input from "../UI/Input/Input";
 import classes from "./Login.module.css";
+import Button from "../UI/Button/Button";
 import AuthContext from "../../store/auth-context";
 
 const emailReducer = (state, action) => {
@@ -27,9 +26,7 @@ const passwordReducer = (state, action) => {
 };
 
 const Login = () => {
-	const ctx = useContext(AuthContext);
-	const emailInputRef = useRef(null);
-	const passwordInputRef = useRef(null);
+  const ctx = useContext(AuthContext);
 	const [formIsValid, setFormIsValid] = useState(false);
 	const [emailState, dispatchEmail] = useReducer(emailReducer, { value: "", isValid: null });
 	const [passwordState, dispatchPassword] = useReducer(passwordReducer, { value: "", isValid: null });
@@ -54,19 +51,13 @@ const Login = () => {
 
 	const submitFn = (event) => {
 		event.preventDefault();
-		if (formIsValid) {
-			ctx.onLogin(emailState.value, passwordState.value);
-		} else if (!emailIsValid) {
-			emailInputRef.current.focus();
-		} else {
-			passwordInputRef.current.focus();
-		}
+		ctx.onLogin(emailState.value, passwordState.value);
 	};
 	const { isValid: emailIsValid } = emailState;
 	const { isValid: passwordIsValid } = passwordState;
-
 	useEffect(() => {
 		const id = setTimeout(() => {
+			console.log("유효성검증완료");
 			setFormIsValid(emailState.value && passwordState.value);
 		}, 500);
 		return () => {
@@ -76,13 +67,13 @@ const Login = () => {
 	return (
 		<Card className={classes.login}>
 			<form onSubmit={submitFn}>
-				{/* <input type="text" autoFocus/>
-				<input type="text" tabIndex="1"/>
-				<input type="text" />
-				<input type="text" /> */}
+				<div className={`${classes.control} ${emailState.isValid === false ? classes.invalid : ""}`}>
+					<label htmlFor='email'>이메일</label>
+					<input type='email' id='email' value={emailState.value} onChange={emailChangeFn} onBlur={validateEmailFn} />
+				</div>
 				<div className={`${classes.control} ${passwordState.isValid === false ? classes.invalid : ""}`}>
-					<Input ref={emailInputRef} id='email' label='이메일' type='email' isValid={emailIsValid} value={emailState.value} onChange={emailChangeFn} onBlur={validateEmailFn} />
-					<Input ref={passwordInputRef} id='password' label='비밀번호' type='password' isValid={passwordIsValid} value={passwordState.value} onChange={passwordChangeFn} onBlur={validatePasswordFn} />
+					<label htmlFor='password'>비밀번호</label>
+					<input type='password' id='password' value={passwordState.value} onChange={passwordChangeFn} onBlur={validatePasswordFn} />
 				</div>
 				<div className={classes.actions}>
 					<Button type='submit' className={classes.btn} disabled={!formIsValid}>
