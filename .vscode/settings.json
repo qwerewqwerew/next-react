@@ -1,0 +1,7 @@
+{
+  "editor.autoClosingQuotes": "always",
+  "editor.autoClosingBrackets": "always",
+  "files.trimTrailingWhitespace": true,
+  "files.trimFinalNewlines": true,
+  "diffEditor.ignoreTrimWhitespace": false
+}
