@@ -1,4 +1,4 @@
-// Challenge / Exercise
+// 지시문
 
 // 1. 컴포넌트 페이지 5개 추가 (콘텐츠는 h1으로 간단히 구성)
 //    - HomePage
