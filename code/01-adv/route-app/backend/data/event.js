@@ -16,7 +16,7 @@ async function writeData(data) {
 async function getAll() {
   const storedData = await readData();
   if (!storedData.events) {
-    throw new NotFoundError('Could not find any events.');
+    throw new NotFoundError('조회된 결과가 없습니다.');
   }
   return storedData.events;
 }
@@ -24,12 +24,12 @@ async function getAll() {
 async function get(id) {
   const storedData = await readData();
   if (!storedData.events || storedData.events.length === 0) {
-    throw new NotFoundError('Could not find any events.');
+    throw new NotFoundError('조회된 결과가 없습니다.');
   }
 
   const event = storedData.events.find((ev) => ev.id === id);
   if (!event) {
-    throw new NotFoundError('Could not find event for id ' + id);
+    throw new NotFoundError('해당 id에 조회된 결과가 없습니다 ' + id);
   }
 
   return event;
@@ -44,12 +44,12 @@ async function add(data) {
 async function replace(id, data) {
   const storedData = await readData();
   if (!storedData.events || storedData.events.length === 0) {
-    throw new NotFoundError('Could not find any events.');
+    throw new NotFoundError('조회된 결과가 없습니다.');
   }
 
   const index = storedData.events.findIndex((ev) => ev.id === id);
   if (index < 0) {
-    throw new NotFoundError('Could not find event for id ' + id);
+    throw new NotFoundError('해당 id에 조회된 결과가 없습니다' + id);
   }
 
   storedData.events[index] = { ...data, id };

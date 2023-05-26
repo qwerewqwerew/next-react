@@ -33,31 +33,31 @@ router.post('/', async (req, res, next) => {
   let errors = {};
 
   if (!isValidText(data.title)) {
-    errors.title = 'Invalid title.';
+    errors.title = '제목을 확인해 주세요.';
   }
 
   if (!isValidText(data.description)) {
-    errors.description = 'Invalid description.';
+    errors.description = '설명을 확인해 주세요.';
   }
 
   if (!isValidDate(data.date)) {
-    errors.date = 'Invalid date.';
+    errors.date = '날짜를 확인해 주세요.';
   }
 
   if (!isValidImageUrl(data.image)) {
-    errors.image = 'Invalid image.';
+    errors.image = '이미지를 확인해 주세요.';
   }
 
   if (Object.keys(errors).length > 0) {
     return res.status(422).json({
-      message: 'Adding the event failed due to validation errors.',
+      message: '잘못된 형식이 있어 등록에 실패 했습니다.',
       errors,
     });
   }
 
   try {
     await add(data);
-    res.status(201).json({ message: 'Event saved.', event: data });
+    res.status(201).json({ message: '등록에 성공 했습니다.', event: data });
   } catch (error) {
     next(error);
   }
@@ -69,31 +69,31 @@ router.patch('/:id', async (req, res, next) => {
   let errors = {};
 
   if (!isValidText(data.title)) {
-    errors.title = 'Invalid title.';
+    errors.title = '제목을 확인 해주세요.';
   }
 
   if (!isValidText(data.description)) {
-    errors.description = 'Invalid description.';
+    errors.description = '설명을 확인 해주세요.';
   }
 
   if (!isValidDate(data.date)) {
-    errors.date = 'Invalid date.';
+    errors.date = '날짜를 확인 해주세요.';
   }
 
   if (!isValidImageUrl(data.image)) {
-    errors.image = 'Invalid image.';
+    errors.image = '이미지를 확인 해주세요.';
   }
 
   if (Object.keys(errors).length > 0) {
     return res.status(422).json({
-      message: 'Updating the event failed due to validation errors.',
+      message: '잘못된 형식이 있어 수정에 실패 했습니다.',
       errors,
     });
   }
 
   try {
     await replace(req.params.id, data);
-    res.json({ message: 'Event updated.', event: data });
+    res.json({ message: '수정에 성공 했습니다.', event: data });
   } catch (error) {
     next(error);
   }
@@ -102,7 +102,7 @@ router.patch('/:id', async (req, res, next) => {
 router.delete('/:id', async (req, res, next) => {
   try {
     await remove(req.params.id);
-    res.json({ message: 'Event deleted.' });
+    res.json({ message: '삭제 했습니다.' });
   } catch (error) {
     next(error);
   }
