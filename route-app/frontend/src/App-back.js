@@ -14,12 +14,12 @@
 //    - /events/<some-id>/edit => EditEventPage
 // 3. 모든 페이지에 <MainNavigation> 컴포넌트를 추가하는 root layout 을 추가하기
 // 4. MainNavigation 에 페이지 링크 넣기
-// 5. MainNavigation 의 링크는 활성화 처리 하기
-// 6. EventsPage에 dummy events list 출력
-//    모든 목록 항목에는 해당 EventDetailPage에 대한 링크가 포함하기
+// 5. MainNavigation 에 링크 활성화 표시 하기
+// 6. EventsPage에 임시이벤트데이터(DUMMY_DB)를 작성후 목록으로 출력하기
+//    - 모든 목록 요소에는 해당 EventDetailPage에 대한 링크를 할것
 // 7. Event Detail 페이지에서 선택한 이벤트의 ID 출력
-// 추가: 모든 /events 경로 위에  <EventNavigation> 컴포넌트를 포함해보기
-//Add another (nested) layout route that adds the <EventNavigation> component above all /events... page components
+// 8. 추가과제: /events 를 중첩라우팅으로 만들기
+//    - <EventNavigation> 컴포넌트는 모든 events 를 임포트 함
 
 function App() {
 	return (
