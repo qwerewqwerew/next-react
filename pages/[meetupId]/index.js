@@ -1,29 +1,52 @@
+import { MongoClient, ObjectId } from "mongodb";
+import Head from "next/head";
 import MeetupDetail from "../../components/meetups/MeetupDetail";
 
-/* 
-components\meetups\MeetupDetail.js
-로 이동한다
-
-const MeetupDetail = () => {
+const MeetupDetails = (props) => {
+	console.log(props);
 	return (
-		<div>
-			<img src="http://qwerew.cafe24.com/images/1.jpg" alt="리액트스터디" />
-			<h1>취준생 팀프로젝트 프론트엔드 한분구해요</h1>
-			<address>강남역 </address>
-			<p>프로젝트 관련 주의사항 : 월,수,금 오전시간에 정기 회의를 계획중이고, 코어타임은 평일 오후 1시부터 5시까지 최소 4시간 정도할 수 있으시면 좋겠고, 그외 특이사항은 되도록 전에 말씀해주시면 감사하겠습니다.</p>
-		</div>
+		<>
+			<Head>
+				<title>{props.meetupData.title}</title>
+				<meta name="description" content={props.meetupData.description} />
+			</Head>
+			<MeetupDetail image={props.meetupData.image} title={props.meetupData.title} address={props.meetupData.address} description={props.meetupData.description} />
+		</>
 	);
 };
-export default MeetupDetail;
- */
 
-import React from "react";
+export async function getStaticPaths() {
+	const client = await MongoClient.connect("mongodb+srv://admin:1234@cluster0.koxhosh.mongodb.net/study?retryWrites=true&w=majority");
+	const db = client.db();
+	const stydyCollection = db.collection("study");
+	const meetups = await stydyCollection.find({}, { _id: 1 }).toArray();
+	client.close();
+	return {
+		fallback: false,
+		paths: meetups.map((meetup) => {
+			return { params: { meetupId: meetup._id.toString() } };
+		}),
+	};
+}
 
-const MeetupDetails = () => {
-	return (
-		<div>
-			<MeetupDetail image={"http://qwerew.cafe24.com/images/1.jpg"} title={"리액트스터디"} address={"강남역"} description={"리액트스터디"}/>
-		</div>
-	);
-};
+export async function getStaticProps(context) {
+	const meetupId = context.params.meetupId;
+	const client = await MongoClient.connect("mongodb+srv://admin:1234@cluster0.koxhosh.mongodb.net/study?retryWrites=true&w=majority");
+	const db = client.db();
+	const stydyCollection = db.collection("study");
+	const selectedMeetup = await stydyCollection.findOne({ _id: new ObjectId(meetupId) });
+
+	client.close();
+	return {
+		props: {
+			meetupData: {
+				id: selectedMeetup._id.toString(),
+				title: selectedMeetup.title,
+				address: selectedMeetup.address,
+				image: selectedMeetup.image,
+				description: selectedMeetup.description,
+			},
+		},
+	};
+}
 export default MeetupDetails;

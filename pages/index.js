@@ -1,3 +1,5 @@
+import Head from "next/head";
+import { MongoClient } from "mongodb";
 import MeetupList from "../components/meetups/MeetupList";
 
 const STUDY_DB = [
@@ -7,27 +9,32 @@ const STUDY_DB = [
 ];
 
 const Home = (props) => {
-	return <MeetupList meetups={props.studies} />;
+	return (
+		<>
+			<Head>
+				<title>Next Study</title>
+				<meta name="description" content="Nextjs로 만든 스터디앱" />
+			</Head>
+			<MeetupList meetups={props.meetups} />;
+		</>
+	);
 };
-// export async function getStaticProps() {
-// 	return {
-// 		props: {
-// 			studies: STUDY_DB,
-// 		},
-// 		//점진적 정적생성: 대기 초시간(지정된 시간마다 정보갱신)
-// 		revalidate:3600
-// 	};
-// }
-
-// getServerSideProps: 서버에서 요청이 들어올때마다 실행된다
-export async function getServerSideProps(context) {
-	const req = context.req;
-	const res = context.res;
-	//api에서 데이터 가져오기
+export async function getStaticProps() {
+	const client = await MongoClient.connect("mongodb+srv://admin:1234@cluster0.koxhosh.mongodb.net/study?retryWrites=true&w=majority");
+	const db = client.db();
+	const stydyCollection = db.collection("study");
+	const meetups = await stydyCollection.find().toArray();
+	client.close();
 	return {
 		props: {
-			studies: STUDY_DB,
+			meetups: meetups.map((meetup) => ({
+				title: meetup.title,
+				address: meetup.address,
+				image: meetup.image,
+				id: meetup._id.toString(),
+			})),
 		},
+		revalidate: 3600,
 	};
 }
 
