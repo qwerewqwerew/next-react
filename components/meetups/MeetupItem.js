@@ -1,13 +1,13 @@
-import { useRouter } from "next/router";
-import Card from "../ui/Card";
-import classes from "./MeetupItem.module.css";
+import { useRouter } from 'next/router';
+import Card from '../ui/Card';
+import classes from './MeetupItem.module.css';
 
 function MeetupItem(props) {
 	const router = useRouter();
 
 	const showMoreFn = () => {
 		//push 메서드는 전달받은 path 로 연결해줌
-		router.push("/" + props.id);
+		router.push('/' + props.id);
 	};
 	return (
 		<li className={classes.item}>
