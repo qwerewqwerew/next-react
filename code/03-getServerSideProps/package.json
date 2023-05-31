@@ -1,9 +1,5 @@
 {
-<<<<<<< HEAD
-  "name": "my-app",
-=======
   "name": "new-app",
->>>>>>> eee6c5e896dc61733d800308db6deb55638093f3
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -13,10 +9,6 @@
     "lint": "next lint"
   },
   "dependencies": {
-<<<<<<< HEAD
-=======
-    "mongodb": "^5.5.0",
->>>>>>> eee6c5e896dc61733d800308db6deb55638093f3
     "next": "13.4.4",
     "react": "18.2.0",
     "react-dom": "18.2.0"
