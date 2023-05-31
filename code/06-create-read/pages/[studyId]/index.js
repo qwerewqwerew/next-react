@@ -34,7 +34,7 @@ export async function getStaticProps(context) {
 	const client = await MongoClient.connect("mongodb+srv://admin:1234@study-cluster.q9t7mcx.mongodb.net/?retryWrites=true&w=majority");
 	const db = client.db();
 	const studyCollection = db.collection("study");
-	const selectStudy = await studyCollection.findOne({ _id: new ObjectId(studyItemId) });
+	const selectStudy = await studyCollection.findOne({ _id: ObjectId });
 
 	client.close();
 	return {
