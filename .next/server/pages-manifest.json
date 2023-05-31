@@ -1,6 +1,10 @@
 {
   "/_app": "pages/_app.js",
   "/_error": "pages/_error.js",
+  "/api/new-study": "pages/api/new-study.js",
+  "/new-study": "pages/new-study.html",
+  "/": "pages/index.js",
+  "/[studyId]": "pages/[studyId].js",
   "/_document": "pages/_document.js",
-  "/[studyId]": "pages/[studyId].js"
+  "/404": "pages/404.html"
 }
