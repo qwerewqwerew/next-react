@@ -25,7 +25,6 @@
 }
 .card {
 	display: flex;
-
 }
 .card .image {
 	flex-basis: 9rem;
