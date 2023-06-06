@@ -6,6 +6,7 @@ import UserProfile from "./components/UserProfile";
 
 function App() {
 	const isAuth = useSelector((state) => {
+		console.log(state);
 		return state.auth.isAuth;
 	});
 	return (

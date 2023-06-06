@@ -16,23 +16,22 @@
 }
 
 .value {
-	padding-left: 2rem;
+  padding-left:2rem;
 	font-size: 2rem;
 	color: #6750a4;
 	margin: 2rem 0;
 	font-weight: bold;
-	text-align: left;
+  text-align: left;
 }
 .card {
 	display: flex;
 }
 .card .image {
 	flex-basis: 9rem;
-	margin-left: 4rem;
+  margin-left:4rem;
 	background: url(http://qwerew.cafe24.com/images/koala1.png) no-repeat center center;
 	background-size: auto 100%;
 }
-
 .button button {
 	margin: 1rem;
 }

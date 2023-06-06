@@ -1,6 +1,9 @@
 import { createSlice } from "@reduxjs/toolkit";
-const countInitState = { count: 0, showCount: true };
 
+const countInitState = {
+	count: 0,
+	showCount: true,
+};
 const countSlice = createSlice({
 	name: "count",
 	initialState: countInitState,
@@ -8,14 +11,13 @@ const countSlice = createSlice({
 		increment(state) {
 			state.count++;
 		},
-		decrement(state) {
-			state.count--;
-		},
 		increment5(state, action) {
 			state.count = state.count + action.payload;
 		},
+		decrement(state) {
+			state.count--;
+		},
 		toggle(state) {
-			console.log(state);
 			state.showCount = !state.showCount;
 		},
 	},

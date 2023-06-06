@@ -1,6 +1,9 @@
 import { createSlice, configureStore } from "@reduxjs/toolkit";
 
-const countInitState = { count: 0, showCount: true };
+const countInitState = {
+	count: 0,
+	showCount: true,
+};
 const authInitState = { isAuth: false };
 
 const countSlice = createSlice({
@@ -10,14 +13,13 @@ const countSlice = createSlice({
 		increment(state) {
 			state.count++;
 		},
-		decrement(state) {
-			state.count--;
-		},
 		increment5(state, action) {
 			state.count = state.count + action.payload;
 		},
+		decrement(state) {
+			state.count--;
+		},
 		toggle(state) {
-			console.log(state);
 			state.showCount = !state.showCount;
 		},
 	},
@@ -34,9 +36,7 @@ const authSlice = createSlice({
 		},
 	},
 });
-const store = configureStore({
-	reducer: { count: countSlice.reducer, auth: authSlice.reducer },
-});
+const store = configureStore({ reducer: { count: countSlice.reducer, auth: authSlice.reducer } });
 export const countActions = countSlice.actions;
 export const authActions = authSlice.actions;
 export default store;

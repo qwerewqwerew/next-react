@@ -4,12 +4,12 @@ import classes from "./Header.module.css";
 
 const Header = () => {
 	const dispatch = useDispatch();
+  const logoutFn = () => {
+    dispatch(authActions.logout());
+  };
 	const isAuth = useSelector((state) => {
 		return state.auth.isAuth;
 	});
-	const logoutFn = () => {
-		dispatch(authActions.logout());
-	};
 	return (
 		<header className={classes.header}>
 			<h1>리덕스</h1>
@@ -24,15 +24,6 @@ const Header = () => {
 						</li>
 						<li>
 							<button onClick={logoutFn}>로그아웃</button>
-						</li>
-					</ul>
-				</nav>
-			)}
-			{!isAuth && (
-				<nav>
-					<ul>
-						<li>
-							<button>로그인</button>
 						</li>
 					</ul>
 				</nav>

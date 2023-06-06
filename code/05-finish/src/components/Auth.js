@@ -15,10 +15,8 @@ const Auth = () => {
 	};
 	const validationFn = (e) => {
 		e.preventDefault(); // 기본 동작 방지
-
 		const emailValue = email.current.value.trim();
 		const passwordValue = password.current.value.trim();
-
 		if (emailValue === "" || passwordValue === "") {
 			alert("입력 형식을 확인해주세요"); // 입력값이 비어 있을 경우 경고창 표시
 		} else {
