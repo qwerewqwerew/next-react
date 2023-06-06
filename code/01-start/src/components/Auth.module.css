@@ -1,0 +1,32 @@
+.auth {
+  margin: 5rem auto;
+  box-shadow: 0 1px 8px rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+  padding: 1rem 3rem;
+  text-align: center;
+  background-color: #f4f0fa;
+  width: 40rem;
+}
+
+.control {
+  display: flex;
+  margin-bottom: 0.5rem;
+}
+
+.control label {
+  flex:1 1 10%;
+  color: #616161;
+  text-transform: uppercase;
+  margin-bottom: 0.5rem;
+}
+
+.control input {
+  flex:1 1 40%;
+  border-radius: 4px;
+  padding: 0.25rem;
+  border: 1px solid #ccc;
+}
+.control+button{
+  margin-top: 1rem;
+  width: 10rem;
+}
